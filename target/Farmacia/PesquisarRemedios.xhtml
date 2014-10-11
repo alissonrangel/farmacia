@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="pageAdmin.xhtml">
+	<ui:define name="centro">
+		<h:link outcome="pageAdmin" value="Admin" />
+		<center>
+			<h:form>
+				<p:growl id="growl" />
+				<h:panelGrid columns="3" id="grid">
+					<p:outputLabel value="NOME DO REMEDIO: " />
+					<p:inputText id="nome" value="#{remedioController.remedio.nomeRe}"
+						required="true" requiredMessage="O campo nome deve ser preenchido" />
+					<p:message for="nome" />
+				</h:panelGrid>
+
+				<p:separator style="width: 80%; height: 5px" />
+
+				<p:commandButton value="Ok" update="grid, growl"
+					action="#{remedioController.listarPesquisaNomeRem()}"
+					style="color: #0000ff" />
+				<p:commandButton value="Limpar" type="reset" style="color: #ff3333" />
+
+				<p:separator style="width: 80%; height: 5px" />
+
+				<p:dataTable value="#{remedioController.listaPesquisaNomeRem}"
+					var="lista" emptyMessage="Não tem nenhum registro">
+					<p:column headerText="id">
+						<p:outputLabel value="#{lista.id}" />
+					</p:column>
+
+					<p:column headerText="nome">
+						<p:outputLabel value="#{lista.nome}" />
+					</p:column>
+
+					<p:column headerText="quantidade">
+						<p:outputLabel value="#{lista.quantidade}" />
+					</p:column>
+
+					<p:column headerText="valor">
+						<p:outputLabel value="#{lista.valor}" />
+					</p:column>
+
+
+
+
+
+					<p:column headerText="*" style="text-align: center"
+						resizable="false" width="40">
+						<p:commandLink action="editarFuncionario"
+							actionListener="#{controller.selecionarFuncionario()}">
+							<p:graphicImage value="/imagens/indice.jpg" width="36"
+								height="36" />
+						</p:commandLink>
+					</p:column>
+
+					<p:column headerText="*" style="text-align: center"
+						resizable="false" width="40">
+						<p:commandLink action="excluirFuncionario"
+							actionListener="#{controller.selecionarFuncionario()}">
+							<p:graphicImage value="/imagens/excluir.jpg" width="36"
+								height="36" />
+						</p:commandLink>
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</center>
+
+	</ui:define>
+</ui:decorate>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<ui:decorate template="pageFunc.xhtml">
+		<ui:define name="centro">
+            <h:form>
+                <p:dataTable value="#{remedioControllerFunc.listaRemedios}" var="lista" emptyMessage="Não tem nenhum registro">
+                    <p:column headerText="id" >
+                        <p:outputLabel value="#{lista.id}"/>
+                    </p:column>
+                    
+                    <p:column headerText="nome" >
+                        <p:outputLabel value="#{lista.nomeRe}"/>
+                    </p:column>
+                    
+                    <p:column headerText="quantidade" >
+                        <p:outputLabel value="#{lista.quantidade}"/>
+                    </p:column>
+                    
+                    <p:column headerText="valor" >
+                        <p:outputLabel value="#{lista.valor}"/>
+                    </p:column>
+                    
+                
+                    
+                    
+                    
+                    <p:column headerText="*" style="text-align: center" resizable="false" width="40">
+                        <p:commandLink action="EditarRemedioFunc" actionListener="#{remedioControllerFunc.selecionarRemedio()}">
+                            <p:graphicImage value="/imagens/indice.jpg" width="36" height="36"/>
+                        </p:commandLink>
+                    </p:column>
+                    
+                    <p:column headerText="*" style="text-align: center" resizable="false" width="40">
+                        <p:commandLink action="ExcluirRemedioFunc" actionListener="#{remedioControllerFunc.selecionarRemedio()}">
+                            <p:graphicImage value="/imagens/excluir.jpg" width="36" height="36"/>
+                        </p:commandLink>
+                    </p:column> 
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+	
+	</ui:decorate> 
+	
+</html>

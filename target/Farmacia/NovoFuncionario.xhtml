@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:decorate template="pageAdmin.xhtml">
+        <ui:define name="centro">
+            <p:fieldset legend="NOVO FUNCIONÁRIO" toggleable="true"> <!-- BOTAO QUE ABRE E FECHA COM + e - -->
+                <center>
+                    <h:form>
+                        <p:growl id="growl"/>
+                        <h:panelGrid columns="3" id="grid">
+                            <p:outputLabel value="NOME: "/>
+                            <p:inputText id="nome" value="#{controller.funcionario.nome}" required="true" requiredMessage="O campo nome deve ser preenchido"/>
+                            <p:message for="nome"/>
+
+                            <p:outputLabel value="IDADE: "/>
+                            <p:inputText id="idade" value="#{controller.funcionario.idade}" required="true" requiredMessage="O campo idade deve ser preenchido"/>
+                            <p:message for="idade"/>
+
+                            <p:outputLabel value="SALARIO: "/>
+                            <p:inputText id="salario" value="#{controller.funcionario.salario}" required="true" requiredMessage="O campo salário deve ser preenchido"/>
+                            <p:message for="salario"/>
+                            
+                            <p:outputLabel value="SENHA: "/>
+                            <p:inputText id="senha" value="#{controller.funcionario.senha}" required="true" requiredMessage="O campo senha deve ser preenchido"/>
+                            <p:message for="senha"/>
+
+                        </h:panelGrid>
+
+                        <p:separator style="width: 80%; height: 5px"/>
+                        <p:commandButton value="Salvar" update="grid, growl" action="#{controller.salvaFuncionario()}" style="color: #0000ff"/>
+                        <p:commandButton value="Limpar" type="reset" style="color: #ff3333"/>
+                    </h:form>
+                </center>
+            </p:fieldset>
+        </ui:define>
+    </ui:decorate>
+</html>

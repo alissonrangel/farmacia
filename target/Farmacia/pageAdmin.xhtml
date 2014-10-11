@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"
+		type="text/javascript"></script>
+		
+</h:head>
+
+<h:body>
+	<p:layout fullPage="true">
+            <p:layoutUnit position="west" size="245">
+                
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Contatos" >
+                            <p:menuitem value="Principal" action="pageAdmin" styleClass="MenuItem" style="color: #0000ff"/>
+                            <p:menuitem value="Novo Funcionario" action="NovoFuncionario" />
+                            <p:menuitem value="Listar Funcionários" action="ListarFuncionarios" style="color: #0000ff"/>
+                            <p:menuitem value="Novo Remédio" action="NovoRemedio" style="color: #0000ff" />
+                            <p:menuitem value="Listar Remédios" action="ListarRemedios" style="color: #0000ff"/>
+                            <p:menuitem value="Pesquisar Remédios"  style="color: #0000ff"/>
+                            <p:menuitem value="Sair"  action="index" style="color: #ff0000"/>
+                        </p:submenu>
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+            <p:layoutUnit position="center" style="background-color: #ffcccc">
+                <ui:insert name="centro">
+                    <center>
+                        <br/>
+                        <p:outputLabel value="Pagina do Admin" />
+                        <br/>
+                        <br/>
+                        <p:graphicImage value="/imagens/imagem.jpg" width="400" height="400"/>
+                    </center>
+                </ui:insert>
+            </p:layoutUnit>
+            
+        </p:layout>
+	
+
+</h:body>
+</html>
